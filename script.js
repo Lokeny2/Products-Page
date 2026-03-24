@@ -1,11 +1,11 @@
 // 1. The Data
 const products = [
-    { id: 1, name: "Premium Laptop", price: 1299, desc: "Power for creators." },
-    { id: 2, name: "Wireless Mouse", price: 45, desc: "Silent clicks, long battery." },
-    { id: 3, name: "Mechanical Keyboard", price: 89, desc: "RGB backlit, tactile feel." },
-    { id: 4, name: "UltraWide Monitor", price: 350, desc: "Immersive 34-inch display." },
-    { id: 5, name: "USB-C Hub", price: 30, desc: "7-in-1 connectivity." },
-    { id: 6, name: "Webcam HD", price: 65, desc: "1080p for clear meetings." }
+    { id: 1, name: "Premium Laptop", price: 1299, desc: "Power for creators.", image: "images/laptop.jpg" },
+    { id: 2, name: "Wireless Mouse", price: 45, desc: "Silent clicks, long battery.", image: "images/mouse.jpg" },
+    { id: 3, name: "Mechanical Keyboard", price: 89, desc: "RGB backlit, tactile feel.", image: "images/keyboard.jpg" },
+    { id: 4, name: "UltraWide Monitor", price: 350, desc: "Immersive 34-inch display.", image: "images/monitor.jpg" },
+    { id: 5, name: "USB-C Hub", price: 30, desc: "7-in-1 connectivity.", image: "images/hub.jpg" },
+    { id: 6, name: "Webcam HD", price: 65, desc: "1080p for clear meetings.", image: "images/webcam.jpg" }
 ];
 
 // Initialize cart from Local Storage or empty array if none exists
@@ -27,8 +27,9 @@ products.forEach((item) => {
     const card = document.createElement('div');
     card.className = 'card';
 
-    // Set the content
+    // Set the content - ADDED THE IMG TAG HERE
     card.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" class="product-img">
         <h3>${item.name}</h3>
         <p>${item.desc}</p>
         <div class="price">$${item.price}</div>
@@ -54,7 +55,7 @@ function handlePurchase(id) {
     alert(`Added ${product.name} to your cart!`);
 }
 
-// --- New Functions for viewing the cart ---
+// New Functions for viewing the cart
 
 function showCart() {
     const modal = document.getElementById('cart-modal');
