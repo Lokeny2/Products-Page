@@ -27,13 +27,13 @@ products.forEach((item) => {
     const card = document.createElement('div');
     card.className = 'card';
 
-    // Set the content - ADDED THE IMG TAG HERE
+    // Set the content - BUTTON TEXT CHANGED TO "Add to Cart"
     card.innerHTML = `
         <img src="${item.image}" alt="${item.name}" class="product-img">
         <h3>${item.name}</h3>
         <p>${item.desc}</p>
         <div class="price">$${item.price}</div>
-        <button onclick="handlePurchase(${item.id})">Buy Now</button>
+        <button onclick="handlePurchase(${item.id})">Add to Cart</button>
     `;
 
     // Add to page
@@ -43,13 +43,13 @@ products.forEach((item) => {
 // 4. Interaction
 function handlePurchase(id) {
     const product = products.find(p => p.id === id);
-    
+
     // Add to cart array
     cart.push(product);
-    
+
     // Save updated cart to Local Storage
     localStorage.setItem('mitamboCart', JSON.stringify(cart));
-    
+
     updateBadge();
     console.log(`Processing order for: ${product.name}`);
     alert(`Added ${product.name} to your cart!`);
@@ -61,7 +61,7 @@ function showCart() {
     const modal = document.getElementById('cart-modal');
     const list = document.getElementById('cart-items-list');
     const totalEl = document.getElementById('cart-total');
-    
+
     list.innerHTML = '';
     let total = 0;
 
