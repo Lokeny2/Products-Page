@@ -1,7 +1,7 @@
 /* --- General Variables --- */
 :root {
     --primary: #60a5fa;
-    --accent: #38bdf8;         /* NEW: defined for hover state */
+    --accent: #38bdf8;         /* defined for hover state */
     --bg: #0f172a;
     --card-bg: #1e293b;
     --text: #f1f5f9;
@@ -45,9 +45,17 @@ header p {
     display: flex;
     flex-direction: column;
     border: 1px solid #334155;
+
+    /* NEW: smooth transition for hover effect */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* NEW: image styling so it fits nicely inside the card */
+/* NEW: card hover effect (lift + deeper shadow) */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.5);
+}
+
 .product-img {
     width: 100%;
     height: auto;
@@ -85,7 +93,7 @@ button {
 }
 
 button:hover {
-    background: var(--accent);    /* now works because --accent is defined */
+    background: var(--accent);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
