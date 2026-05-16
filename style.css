@@ -1,15 +1,16 @@
 /* --- General Variables --- */
 :root {
-    --primary: #60a5fa;       
-    --bg: #0f172a;          
-    --card-bg: #1e293b;      
-    --text: #f1f5f9;          
-    --text-muted: #94a3b8;         
+    --primary: #60a5fa;
+    --accent: #38bdf8;         /* NEW: defined for hover state */
+    --bg: #0f172a;
+    --card-bg: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
 }
 
 /* --- Base Styles --- */
-body { 
-    font-family: system-ui, -apple-system, sans-serif; 
+body {
+    font-family: system-ui, -apple-system, sans-serif;
     background-color: var(--bg);
     color: var(--text);
     margin: 0;
@@ -23,31 +24,38 @@ header {
 }
 
 header p {
-    color: var(--text-muted); /* Makes the subtitle less distracting */
+    color: var(--text-muted);
 }
 
 /* --- Product Grid Layout --- */
-#product-container { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
-    gap: 2rem; 
+#product-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
     max-width: 1100px;
     margin: 0 auto;
 }
 
 /* --- Product Card Styles --- */
-.card { 
+.card {
     background: var(--card-bg);
-    border-radius: 1rem; 
-    padding: 1.5rem; 
-    /* Darker, subtle shadow to give depth without glowing */
+    border-radius: 1rem;
+    padding: 1.5rem;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    border: 1px solid #334155; /* Subtle border to separate card from bg */
+    border: 1px solid #334155;
 }
 
-.card h3 { 
+/* NEW: image styling so it fits nicely inside the card */
+.product-img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
     margin-top: 0;
     color: var(--text);
 }
@@ -56,18 +64,18 @@ header p {
     color: var(--text-muted);
 }
 
-.price { 
+.price {
     font-size: 1.5rem;
-    font-weight: 700; 
+    font-weight: 700;
     color: var(--primary);
     margin: 1rem 0;
 }
 
 /* --- General Button Styles --- */
 button {
-    margin-top: auto; 
+    margin-top: auto;
     background: var(--primary);
-    color: #0f172a; /* Dark text on light button for contrast */
+    color: #0f172a;
     border: none;
     padding: 0.8rem;
     border-radius: 0.5rem;
@@ -76,8 +84,8 @@ button {
     transition: all 0.2s ease;
 }
 
-button:hover { 
-    background: var(--accent);
+button:hover {
+    background: var(--accent);    /* now works because --accent is defined */
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
 }
@@ -94,14 +102,14 @@ button:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* --- Modal (that is Popup) Styles --- */
+/* --- Modal Styles --- */
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 100;
     left: 0; top: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Very dark backdrop */
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .modal-content {
